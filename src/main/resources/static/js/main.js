@@ -48,17 +48,17 @@ function displaySelectedUsers(users) {
     var userListElement = document.getElementById('userList');
     userListElement.innerHTML = ''; // Clear previous users
 
-    // var ownerHeader = document.createElement('h3');
-    // ownerHeader.textContent = 'Owner:';
-    // userListElement.appendChild(ownerHeader);
+    var ownerHeader = document.createElement('h3');
+    ownerHeader.textContent = 'Owner:';
+    userListElement.appendChild(ownerHeader);
 
     var ownerElement = document.createElement('li');
     ownerElement.textContent = username;
     userListElement.appendChild(ownerElement);
 
-    // var membersHeader = document.createElement('h3');
-    // membersHeader.textContent = 'Members:';
-    // userListElement.appendChild(membersHeader);
+    var membersHeader = document.createElement('h3');
+    membersHeader.textContent = 'Members:';
+    userListElement.appendChild(membersHeader);
 
     users.forEach(function(user) {
         var userElement = document.createElement('li');
