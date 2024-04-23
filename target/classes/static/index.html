@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Chat Box</title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body background="maxresdefault.jpg"
+      style="background-position: center; background-repeat: no-repeat; background-size: cover;">
+<noscript>
+    <h2>Oops! It seems this browser does not support JavaScript</h2>
+</noscript>
+
+<div id="username-page">
+    <div class="username-page-container">
+        <h1 class="title">Enter Details</h1>
+        <form id="usernameForm" name="usernameForm">
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Nickname"
+                       autocomplete="off" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="chatRoomName" placeholder="Chat Room Name"
+                       autocomplete="off" class="form-control" />
+            </div>
+            <div class="form-group">
+                <select id="selectedUsers" multiple required>
+                    <option value="" disabled>Select Users to add in this Chatroom</option>
+                    <!-- Loop to generate options -->
+                    <!-- Assuming 'users' is an array containing the usernames -->
+                    <script>
+                        var users = ["Guest1", "Guest2", "Guest3", "Guest4", "Guest5", "Guest6", "Guest7", "Guest8", "Guest9", "Guest10", "Guest11"];
+                        for (var i = 0; i < users.length; i++) {
+                            document.write("<option value='" + users[i] + "'>" + users[i] + "</option>");
+                        }
+                    </script>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="button" class="accent username-submit" onclick="connect(event)">Start chatting</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="chat-page" class="hidden">
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2 id="chatRoomHeading">ChatRoom</h2>
+        </div>
+        <div class="connecting">Connecting to chat...</div>
+        <ul id="messageArea"></ul>
+        <ul id="userList"></ul>
+        <form id="messageForm" name="messageForm" nameForm="messageForm">
+            <div class="form-group">
+                <div class="input-group clearfix">
+                    <input type="text" id="message" placeholder="Type a message..."
+                           autocomplete="off" class="form-control" />
+                    <button type="submit" class="primary">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
